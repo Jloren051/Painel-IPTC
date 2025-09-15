@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>IPTC - Painel de Distritos de São Paulo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Indicador de Permeabilidade de Transporte Coletivo (IPTC)</h1>
+  </header>
+
+  <main>
+    <div id="painel-distrito">
+      <h2 id="nome-distrito"></h2>
+
+      <div class="quadrantes">
+        <!-- Coluna 1: Controles + Quadrante 1 -->
+        <div class="coluna-controles-mapa">
+          <section class="controles">
+            <div class="controle-item">
+              <label for="seletor-distrito">Distrito:</label>
+              <select id="seletor-distrito"></select>
+            </div>
+            <div class="controle-item">
+              <label for="seletor-mes">Mês:</label>
+              <select id="seletor-mes">
+                <option value="05">Maio</option>
+              </select>
+            </div>
+            <div class="controle-item">
+              <label for="seletor-ano">Ano:</label>
+              <select id="seletor-ano">
+                <option value="2025">2025</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="resumo-condensado">
+            <div>
+              <strong>Pontuação:</strong> <span id="iptc-pontuacao"></span>
+            </div>
+            <div>
+              <strong>Classificação:</strong> <span id="iptc-classificacao"></span>
+            </div>
+            <div>
+              <strong>Ranking:</strong> <span id="iptc-ranking"></span>
+            </div>
+          </section>
+
+          <div class="quadrante" id="quadrante1">
+            <h3>Mapa de São Paulo</h3>
+            <img id="mapa-sao-paulo" src="img/Mapas_ÁGUA RASA.png" alt="Mapa de São Paulo"/>
+          </div>
+        </div>
+
+        <!-- Quadrante 2 -->
+        <div class="quadrante" id="quadrante2">
+          <h3>Dados Gerais:</h3>
+          <h4>População:</h4><div id="populacao"></div>
+          <h4>População feminina (%):</h4><div id="populacao-feminina"></div>
+          <h4>Domicílios:</h4><div id="domicilios"></div>
+          <h4>Empregos:</h4><div id="empregos"></div>
+          <h4>Empregos/hab:</h4><div id="empregos-hab"></div>
+          <h4>Desemprego (%):</h4><div id="desemprego"></div>
+          <h4>Renda per capita (2024):</h4><div id="renda-per-capita"></div>
+          <h4>Automóveis:</h4><div id="automoveis"></div>
+          <h4>Motorização:</h4><div id="motorizacao"></div>
+          <h4>Viagens produzidas:</h4><div id="viagens-produzidas"></div>
+          <h4>Viagens não motorizadas:</h4><div id="viagens-nao-motorizadas"></div>
+          <h4>Viagens coletivas:</h4><div id="viagens-coletivas"></div>
+          <h4>Tempo coletivo:</h4><div id="tempo-coletivo"></div>
+          <h4>Tempo individual:</h4><div id="tempo-individual"></div>
+        </div>
+
+        <!-- Quadrante 3 -->
+        <div class="quadrante" id="quadrante3">
+          <h3>Indicadores</h3>
+          <div class="indicadores-container">
+            <div class="coluna-indicadores">
+              <div class="indicadores-grupo">
+                <h4>Indicadores do IPTC</h4>
+                <button onclick="mostrarIndicador('atendimento_diurno')">1. Atendimento (rede diurna)</button>
+                <button onclick="mostrarIndicador('atendimento_noturno')">2. Atendimento (rede noturna)</button>
+                <button onclick="mostrarIndicador('freq_media')">3. Frequência média nos pontos</button>
+                <button onclick="mostrarIndicador('ocup_media')">4. Ocupação média</button>
+                <button onclick="mostrarIndicador('idade_frota')">5. Idade média da frota</button>
+                <button onclick="mostrarIndicador('intervalo_medio')">6. Intervalo médio</button>
+                <button onclick="mostrarIndicador('acess_empregos')">7. Acessibilidade a empregos</button>
+                <button onclick="mostrarIndicador('declividade')">8. Declividade</button>
+              </div>
+            </div>
+
+            <div class="coluna-indicadores">
+              <div class="indicadores-grupo">
+                <h4>Indicadores Sociodemográficos</h4>
+                <button onclick="mostrarIndicador('populacao')">1. População</button>
+                <button onclick="mostrarIndicador('raca')">2. Raça</button>
+                <button onclick="mostrarIndicador('empregos')">3. Empregos</button>
+                <button onclick="mostrarIndicador('ipvs')">4. Vulnerabilidade (IPVS)</button>
+              </div>
+
+              <div class="indicadores-grupo">
+                <h4>Indicadores do Sistema</h4>
+                <button onclick="mostrarIndicador('volume_onibus')">1. Volume de ônibus</button>
+                <button onclick="mostrarIndicador('carregamentos')">2. Carregamentos e ocupação</button>
+                <button onclick="mostrarIndicador('velocidade')">3. Velocidade</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quadrante 4 -->
+        <div class="quadrante" id="quadrante4">
+          <h3>Visualização do Indicador</h3>
+          <img id="img-indicador" src="" alt="Indicador"/>
+        </div>
+      </div>      
+    </div>
+  </main>
+
+  <footer>
+    <p><b>IPTC - Painel de Distritos de São Paulo</b><span id="data-fonte"></span>,
+        <br><b>Elaborado por: DT/SPA/GAE</b></br></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
